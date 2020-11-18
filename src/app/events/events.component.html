@@ -1,0 +1,4 @@
+<button class="float-right" (click)="toggleEditMode()">{{editMode ? "Preview" : "Edit"}}</button>
+
+<app-preview [hidden]="editMode" [events]="this.events"></app-preview>
+<app-edit [hidden]="!editMode" (updatedEvents)="updateEvents($event)" [events]="this.events"></app-edit>

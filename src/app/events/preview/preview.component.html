@@ -1,0 +1,20 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>EventName</th>
+      <th>OddsForFirstTeam</th>
+      <th>OddsForDraw</th>
+      <th>OddsForSecondTeam</th>
+      <th>EventStartDate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let event of events" [ngStyle]="{'background-color': this.isDatePassed(event.startDate) ? 'lightsalmon' : ''}">
+      <td>{{event.name}}</td>
+      <td (click)="printOdds('OddsForFirstTeam', event.id, event.oddsForFirstTeam)">{{event.oddsForFirstTeam | number : '1.2-2'}}</td>
+      <td (click)="printOdds('OddsForDraw', event.id, event.oddsForDraw)">{{event.oddsForDraw | number : '1.2-2'}}</td>
+      <td (click)="printOdds('OddsForSecondTeam', event.id, event.oddsForSecondTeam)">{{event.oddsForSecondTeam | number : '1.2-2'}}</td>
+      <td>{{event.startDate | date : 'yyyy/MM/dd HH:mm'}}</td>
+    </tr>
+  </tbody>
+</table>
